@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 
 import net.milkbowl.vault.permission.Permission;
 
+import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -31,7 +33,9 @@ public class ConquestTitle extends JavaPlugin {
 	static HashMap<String, String> prefixList = new HashMap<String, String>();
 	static HashMap<String, String> suffixList = new HashMap<String, String>();
 	static HashMap<String, String> colorList = new HashMap<String, String>();
-
+	
+	static HashMap<String, String> prefixText = new HashMap<String, String>();
+	static HashMap<String, String> suffixText = new HashMap<String, String>();
 	
 	public void onEnable() {
 		plugin = this;
@@ -77,13 +81,17 @@ public class ConquestTitle extends JavaPlugin {
 			conf = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder() + File.separator + "config.yml"));
 			if (conf.isConfigurationSection("prefixes")) {
 		           for (Map.Entry<String, Object> entry : conf.getConfigurationSection("prefixes").getValues(false).entrySet()) {
-		               prefixList.put(entry.getKey(), (String) entry.getValue());
-		               
+		               ConfigurationSection cs = conf.getConfigurationSection("prefixes." + entry.getKey());
+		               prefixList.put(entry.getKey(), cs.getString("permission"));
+		               prefixText.put(entry.getKey(), getColoredText(cs.getString("text")));
+
 		           }
 			}
 			if (conf.isConfigurationSection("suffixes")) {
 		           for (Map.Entry<String, Object> entry : conf.getConfigurationSection("suffixes").getValues(false).entrySet()) {
-		               suffixList.put(entry.getKey(), (String) entry.getValue());
+		               ConfigurationSection cs = conf.getConfigurationSection("suffixes." + entry.getKey());
+		               suffixList.put(entry.getKey(), cs.getString("permission"));
+		               suffixText.put(entry.getKey(), getColoredText(cs.getString("text")));
 		               
 		           }
 			}
@@ -126,4 +134,7 @@ public class ConquestTitle extends JavaPlugin {
         }
         return false;
     }
+    public static String getColoredText(String s){
+        return ChatColor.translateAlternateColorCodes('&', s);
+     }
 }

@@ -4,7 +4,7 @@
 # The permission nodes are customizable for your benefit, and can be set to whatever you want them to be. You could even do something like have the same permission node for multiple
 # titles and colors together if you want, just put the same permission node below for both titles and colors.
 # The formatting of the chat works like this:
-# [Prefix] color username [Suffix]: <chat>
+# Prefix color username Suffix: <chat>
 # Commands are:
 # /title prefix <prefix> : Sets prefix
 # /title prefix : Wipes current prefix
@@ -15,9 +15,13 @@
 # /title list : Lists all available prefixes, suffixes, and colors based on permission access
 # 
 prefixes:
-  Example: 'conquesttitle.prefix.Example'
+  Example: 
+    permission: 'conquesttitle.prefix.Example'
+    text: '&8[&4Example&8]'
 suffixes:
-  Example2: 'conquesttitle.suffix.Example2'
+  Example2:
+    permission: 'conquesttitle.prefix.Example2'
+    text: '&8<&4Example2&8>'
 colors:
   BLACK: 'conquesttitle.color.BLACK'
   DARK_BLUE: 'conquesttitle.color.DARK_BLUE'

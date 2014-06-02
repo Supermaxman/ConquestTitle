@@ -62,13 +62,13 @@ public class TitleExecutor extends BaseExecutor {
             	player.sendMessage(ChatColor.AQUA+"Prefixes:");
         		for(String s : ConquestTitle.prefixList.keySet()) {
         			if(ConquestTitle.permission.has(player, ConquestTitle.prefixList.get(s))) {
-                    	player.sendMessage(" - " + ChatColor.WHITE+"["+s+"]");
+                    	player.sendMessage(" - " + ConquestTitle.prefixText.get(s));
         			}
         		}
             	player.sendMessage(ChatColor.AQUA+"Suffixes:");
         		for(String s : ConquestTitle.suffixList.keySet()) {
         			if(ConquestTitle.permission.has(player, ConquestTitle.suffixList.get(s))) {
-                    	player.sendMessage(" - " + ChatColor.WHITE+"["+s+"]");
+                    	player.sendMessage(" - " + ConquestTitle.suffixText.get(s));
         			}
         		}
             	player.sendMessage(ChatColor.AQUA+"Colors:");
