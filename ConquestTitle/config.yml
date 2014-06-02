@@ -1,0 +1,42 @@
+#
+# Notes:
+# The only issue is that the players must type the exact capitalization for both prefixes and suffixes. Colors can be typed as DARK_RED, dark_red, or any capitalization combinations between.
+# The permission nodes are customizable for your benefit, and can be set to whatever you want them to be. You could even do something like have the same permission node for multiple
+# titles and colors together if you want, just put the same permission node below for both titles and colors.
+# The formatting of the chat works like this:
+# [Prefix] color username [Suffix]: <chat>
+# Commands are:
+# /title prefix <prefix> : Sets prefix
+# /title prefix : Wipes current prefix
+# /title suffix <suffix> : Sets suffix
+# /title suffix : Wipes current suffix
+# /title color <color_name> : Sets color
+# /title color : Wipes current color
+# /title list : Lists all available prefixes, suffixes, and colors based on permission access
+# 
+prefixes:
+  Example: 'conquesttitle.prefix.Example'
+suffixes:
+  Example2: 'conquesttitle.suffix.Example2'
+colors:
+  BLACK: 'conquesttitle.color.BLACK'
+  DARK_BLUE: 'conquesttitle.color.DARK_BLUE'
+  DARK_GREEN: 'conquesttitle.color.DARK_GREEN'
+  DARK_AQUA: 'conquesttitle.color.DARK_AQUA'
+  DARK_RED: 'conquesttitle.color.DARK_RED'
+  DARK_PURPLE: 'conquesttitle.color.DARK_PURPLE'
+  GOLD: 'conquesttitle.color.GOLD'
+  GRAY: 'conquesttitle.color.GRAY'
+  DARK_GRAY: 'conquesttitle.color.DARK_GRAY'
+  BLUE: 'conquesttitle.color.BLUE'
+  GREEN: 'conquesttitle.color.GREEN'
+  AQUA: 'conquesttitle.color.AQUA'
+  RED: 'conquesttitle.color.RED'
+  LIGHT_PURPLE: 'conquesttitle.color.LIGHT_PURPLE'
+  YELLOW: 'conquesttitle.color.YELLOW'
+  WHITE: 'conquesttitle.color.WHITE'
+  MAGIC: 'conquesttitle.color.MAGIC'
+  BOLD: 'conquesttitle.color.BOLD'
+  STRIKETHROUGH: 'conquesttitle.color.STRIKETHROUGH'
+  UNDERLINE: 'conquesttitle.color.UNDERLINE'
+  ITALIC: 'conquesttitle.color.ITALIC'

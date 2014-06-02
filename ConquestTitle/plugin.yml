@@ -1,0 +1,9 @@
+name: ConquestTitle
+main: me.supermaxman.conquesttitle.ConquestTitle
+version: 1.0.0
+author: Supermaxman
+description: Titles!
+commands:
+    title:
+        description: Title command
+        usage: /<command>
