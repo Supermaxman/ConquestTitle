@@ -39,6 +39,7 @@ colors:
   LIGHT_PURPLE: 'conquesttitle.color.LIGHT_PURPLE'
   YELLOW: 'conquesttitle.color.YELLOW'
   WHITE: 'conquesttitle.color.WHITE'
+styles:
   MAGIC: 'conquesttitle.color.MAGIC'
   BOLD: 'conquesttitle.color.BOLD'
   STRIKETHROUGH: 'conquesttitle.color.STRIKETHROUGH'

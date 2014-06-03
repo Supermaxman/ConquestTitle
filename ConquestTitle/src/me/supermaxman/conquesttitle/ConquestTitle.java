@@ -29,11 +29,13 @@ public class ConquestTitle extends JavaPlugin {
 	static HashMap<String, String> prefixes = new HashMap<String, String>();
 	static HashMap<String, String> suffixes = new HashMap<String, String>();
 	static HashMap<String, String> colors = new HashMap<String, String>();
-	
+	static HashMap<String, String> styles = new HashMap<String, String>();
+
 	static HashMap<String, String> prefixList = new HashMap<String, String>();
 	static HashMap<String, String> suffixList = new HashMap<String, String>();
 	static HashMap<String, String> colorList = new HashMap<String, String>();
-	
+	static HashMap<String, String> styleList = new HashMap<String, String>();
+
 	static HashMap<String, String> prefixText = new HashMap<String, String>();
 	static HashMap<String, String> suffixText = new HashMap<String, String>();
 	
@@ -62,11 +64,12 @@ public class ConquestTitle extends JavaPlugin {
 			prefixes = (HashMap<String, String>) new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "prefixes.ser")).readObject();
 			suffixes = (HashMap<String, String>) new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "suffixes.ser")).readObject();
 			colors = (HashMap<String, String>) new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "colors.ser")).readObject();
-			
+			styles = (HashMap<String, String>) new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "styles.ser")).readObject();
 			new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "prefixes.ser")).close();
 			new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "suffixes.ser")).close();
 			new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "colors.ser")).close();
-			
+			new ObjectInputStream(new FileInputStream(getDataFolder() + File.separator + "styles.ser")).close();
+
 		} catch (Exception e) {
 			log.warning("[" + getName() + "] files could not be read! All files are now ignored.");
 		}
@@ -78,7 +81,8 @@ public class ConquestTitle extends JavaPlugin {
 	static void loadTitles() {
 		
 		try {
-			conf = YamlConfiguration.loadConfiguration(new File(plugin.getDataFolder() + File.separator + "config.yml"));
+			plugin.reloadConfig();
+			conf = plugin.getConfig();
 			if (conf.isConfigurationSection("prefixes")) {
 		           for (Map.Entry<String, Object> entry : conf.getConfigurationSection("prefixes").getValues(false).entrySet()) {
 		               ConfigurationSection cs = conf.getConfigurationSection("prefixes." + entry.getKey());
@@ -101,6 +105,12 @@ public class ConquestTitle extends JavaPlugin {
 		               
 		           }
 			}
+			if (conf.isConfigurationSection("styles")) {
+		           for (Map.Entry<String, Object> entry : conf.getConfigurationSection("styles").getValues(false).entrySet()) {
+		        	   styleList.put(entry.getKey(), (String) entry.getValue());
+		               
+		           }
+			}
 		} catch (Exception e) {
 			log.warning("[" + plugin.getName() + "] Titles are invalid in config.yml! Could not load the values.");
 		}
@@ -117,7 +127,9 @@ public class ConquestTitle extends JavaPlugin {
 			ObjectOutputStream oos3 = new ObjectOutputStream(new FileOutputStream(getDataFolder() + File.separator + "colors.ser"));
 			oos3.writeObject(colors);
 			oos3.close();
-			
+			ObjectOutputStream oos4 = new ObjectOutputStream(new FileOutputStream(getDataFolder() + File.separator + "styles.ser"));
+			oos4.writeObject(styles);
+			oos4.close();
 		} catch (Exception e) {
 			log.warning("[" + getName() + "] files could not be saved!");
 			e.printStackTrace();

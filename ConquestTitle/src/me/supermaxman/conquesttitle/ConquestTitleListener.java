@@ -17,10 +17,14 @@ public class ConquestTitleListener implements Listener {
 		String pref = "";
 		String suff = "";
 		String col = "";
+		String sty = "";
+		
 		if(ConquestTitle.prefixes.containsKey(p.getName()))pref = ConquestTitle.prefixText.get(ConquestTitle.prefixes.get(p.getName()));
 		if(ConquestTitle.suffixes.containsKey(p.getName()))suff = ConquestTitle.suffixText.get(ConquestTitle.suffixes.get(p.getName()));
 		if(ConquestTitle.colors.containsKey(p.getName()))col = ChatColor.valueOf(ConquestTitle.colors.get(p.getName()))+"";
-		p.setDisplayName((pref + ChatColor.WHITE + col + p.getName() + ChatColor.WHITE + suff + ChatColor.WHITE));
+		if(ConquestTitle.styles.containsKey(p.getName()))sty = ChatColor.valueOf(ConquestTitle.styles.get(p.getName()))+"";
+		
+		p.setDisplayName((pref + ChatColor.WHITE + col + sty + p.getName() + ChatColor.RESET + ChatColor.WHITE + suff + ChatColor.WHITE));
 	}
 	
 }
