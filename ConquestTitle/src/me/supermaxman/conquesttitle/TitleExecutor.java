@@ -61,7 +61,7 @@ public class TitleExecutor extends BaseExecutor {
 	    	}else if(args[0].equalsIgnoreCase("style")&&args.length>=2) {
         		String style = args[1].toUpperCase();
         		if(ConquestTitle.styleList.containsKey(style)) {
-        			if(ConquestTitle.permission.has(player, ConquestTitle.colorList.get(style))) {
+        			if(ConquestTitle.permission.has(player, ConquestTitle.styleList.get(style))) {
         				ConquestTitle.styles.put(player.getName(), style);
                     	player.sendMessage(ChatColor.AQUA+"Your style has been changed.");
         			}else {
