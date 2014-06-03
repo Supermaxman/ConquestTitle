@@ -58,6 +58,23 @@ public class TitleExecutor extends BaseExecutor {
     				ConquestTitle.colors.remove(player.getName());
 	    		}
 	        	player.sendMessage(ChatColor.AQUA+"Color removed.");
+	    	}else if(args[0].equalsIgnoreCase("style")&&args.length>=2) {
+        		String style = args[1].toUpperCase();
+        		if(ConquestTitle.styleList.containsKey(style)) {
+        			if(ConquestTitle.permission.has(player, ConquestTitle.colorList.get(style))) {
+        				ConquestTitle.styles.put(player.getName(), style);
+                    	player.sendMessage(ChatColor.AQUA+"Your style has been changed.");
+        			}else {
+                    	player.sendMessage(ChatColor.RED+"You do not have permission!");
+        			}
+        		}else {
+                	player.sendMessage(ChatColor.RED+"Color does not exist!");
+        		}
+        	}else if(args[0].equalsIgnoreCase("style")) {
+        		if(ConquestTitle.styles.containsKey(player.getName())) {
+    				ConquestTitle.styles.remove(player.getName());
+	    		}
+	        	player.sendMessage(ChatColor.AQUA+"Color removed.");
 	    	}else if(args[0].equalsIgnoreCase("list")) {
             	player.sendMessage(ChatColor.AQUA+"Prefixes:");
         		for(String s : ConquestTitle.prefixList.keySet()) {
