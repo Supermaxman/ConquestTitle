@@ -94,11 +94,17 @@ public class TitleExecutor extends BaseExecutor {
                     	player.sendMessage(" - " + ChatColor.valueOf(s)+s);
         			}
         		}
+            	player.sendMessage(ChatColor.AQUA+"Styles:");
+        		for(String s : ConquestTitle.styleList.keySet()) {
+        			if(ConquestTitle.permission.has(player, ConquestTitle.styleList.get(s))) {
+                    	player.sendMessage(" - " + ChatColor.valueOf(s)+s);
+        			}
+        		}
         	}else {
-            	player.sendMessage(ChatColor.RED+"Command used incorrectly, please type /title [prefix,suffix,color,list] [value]");
+            	player.sendMessage(ChatColor.RED+"Command used incorrectly, please type /title [prefix,suffix,color,style,list] [value]");
         	}
         }else {
-        	player.sendMessage(ChatColor.RED+"Command used incorrectly, please type /title [prefix,suffix,color,list] [value]");
+        	player.sendMessage(ChatColor.RED+"Command used incorrectly, please type /title [prefix,suffix,color,style,list] [value]");
         }
     }
 
