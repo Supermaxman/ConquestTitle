@@ -3,7 +3,6 @@ package me.supermaxman.conquesttitle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 abstract class BaseExecutor implements CommandExecutor {
 	protected static ConquestTitle pl;
@@ -13,20 +12,12 @@ abstract class BaseExecutor implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player;
-        final boolean isPlayer = (sender instanceof Player);
-
-        if (isPlayer) {
-            player = (Player) sender;
-        } else {
-            return false;
-        }
-
-        this.run(player, args);
+    	
+        this.run(sender, args);
 
         return true;
     }
 
-    protected abstract void run(Player player, String[] args);
+    protected abstract void run(CommandSender player, String[] args);
 
 }

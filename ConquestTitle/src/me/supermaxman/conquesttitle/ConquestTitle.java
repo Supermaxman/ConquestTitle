@@ -42,7 +42,8 @@ public class ConquestTitle extends JavaPlugin {
 		plugin = this;
 		
 		saveDefaultConfig();
-        getCommand("title").setExecutor(new TitleExecutor(this));    
+        getCommand("title").setExecutor(new TitleExecutor(this));  
+        getCommand("alert").setExecutor(new AlertExecutor(this));    
         if (!setupPermissions()) {
         	log.severe("Vault fail!");
             this.setEnabled(false);

@@ -7,3 +7,6 @@ commands:
     title:
         description: Title command
         usage: /<command>
+    alert:
+        description: Alert command
+        usage: /<command>

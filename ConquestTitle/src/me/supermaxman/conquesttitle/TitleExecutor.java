@@ -1,11 +1,14 @@
 package me.supermaxman.conquesttitle;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class TitleExecutor extends BaseExecutor {
     @Override
-    protected void run(Player player, String[] args) {
+    protected void run(CommandSender sender, String[] args) {
+    	if(!(sender instanceof Player))return;
+    	Player player = (Player) sender;
         if(args.length != 0){
         	if(args[0].equalsIgnoreCase("prefix")&&args.length>=2) {
         		String prefix = args[1];
