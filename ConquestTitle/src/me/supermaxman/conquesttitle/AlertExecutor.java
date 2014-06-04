@@ -8,8 +8,11 @@ public class AlertExecutor extends BaseExecutor {
     protected void run(CommandSender sender, String[] args) {	
     	if(sender.isOp()) {
 	    	if(args.length != 0){
-	        	String s = args[0];
-	        	sender.getServer().broadcastMessage(ChatColor.DARK_GRAY+"["+ChatColor.DARK_RED+"ALERT"+ChatColor.DARK_GRAY+"]: "+ChatColor.RED+s);
+	        	String m = "";
+	        	for(String s : args) {
+	        		m = m +" "+s;
+	        	}
+	        	sender.getServer().broadcastMessage(ChatColor.DARK_GRAY+"["+ChatColor.DARK_RED+"ALERT"+ChatColor.DARK_GRAY+"]: "+ChatColor.RED+m);
 	        }else {
 	        	sender.sendMessage(ChatColor.RED+"Command used incorrectly, please type /alert [text]");
 	        }
